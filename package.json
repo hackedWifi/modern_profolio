@@ -1,0 +1,19 @@
+{
+  "name": "modern_portfolio",
+  "version": "1.0.0",
+  "description": "Responsive modern portfolio website",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
+  },
+  "keywords": [
+    "website",
+    "html",
+    "css"
+  ],
+  "author": "Ajdelvalle",
+  "license": "MIT",
+  "dependencies": {
+    "node-sass": "^4.10.0"
+  }
+}
