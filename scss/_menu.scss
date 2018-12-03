@@ -34,3 +34,85 @@
     }
   }
 }
+
+//Menu overlay
+.menu {
+  position: fixed;
+  top: 0;
+  opacity: 0.9;
+  width: 100%;
+  visibility: hidden;
+
+  &.show {
+    visibility: visible;
+  }
+  &-branding,
+  &-nav {
+    align-items: center;
+    display: flex;
+    float: left;
+    flex-flow: column wrap;
+    height: 100vh;
+    justify-content: center;
+    overflow: hidden;
+    width: 50%;
+  }
+  &-nav {
+    @include easeOut;
+    background: darken($primary-color, 5);
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    transform: translate3d(0, -100%, 0);
+
+    &.show {
+      // slide in from top
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  &-branding {
+    @include easeOut;
+    background: $primary-color;
+    transform: translate3d(0, 100%, 0);
+    &.show {
+      transform: translate3d(0, 0, 0);
+    }
+    .portrait {
+      background: url("../img/my_photo.jpg");
+      border-radius: 50%;
+      border: solid 3px $secondary-color;
+      height: 250px;
+      width: 250px;
+    }
+  }
+  .nav-item {
+    @include easeOut;
+    transform: translate3d(600px, 0, 0);
+
+    &.show {
+      transform: translate3d(0, 0, 0);
+    }
+    &.current > a {
+      color: $secondary-color;
+    }
+  }
+  .nav-link {
+    @include easeOut;
+    color: #fff;
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 300;
+    position: relative;
+    padding: 1rem 0;
+    text-transform: uppercase;
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+}
+//delay each nav slide by 0.1s
+@for $x from 1 through 4 {
+  .nav-item:nth-child(#{$x}) {
+    transition-delay: $x * 0.1s;
+  }
+}
